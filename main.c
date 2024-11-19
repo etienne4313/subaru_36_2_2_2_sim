@@ -12,8 +12,8 @@ void die(int err, int line)
 /* MEGA 2560 */
 // Digital PIN 36 and PIN34 ( for scope capture )
 #define CFG_OUTPUT() do { \
-    DDRC |= _BV(DDC1);\
-    DDRC |= _BV(DDC3);\
+	DDRC |= _BV(DDC1);\
+	DDRC |= _BV(DDC3);\
 } while(0)
 #define DO_ON() do {PORTC |= (_BV(PC1) | _BV(PC3)) ; } while(0)
 #define DO_OFF() do {PORTC &= ~(_BV(PC1) | _BV(PC3)) ; } while(0)
@@ -86,7 +86,7 @@ static void t1(void *p)
 	OS_CPU_SR cpu_sr = 0;
 
 	OS_ENTER_CRITICAL();
-    PRINT("******************************%s\n",name);
+	PRINT("******************************%s\n",name);
 	OS_EXIT_CRITICAL();
 
 	CFG_OUTPUT();
@@ -107,7 +107,7 @@ int main(void)
 	OS_CPU_SR cpu_sr = 0;
 
 	/* Don't let any IRQ come */
-    OS_ENTER_CRITICAL();
+	OS_ENTER_CRITICAL();
 
 	lib_init();
 	PRINT("Entering main control loop\n");
