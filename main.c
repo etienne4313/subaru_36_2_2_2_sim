@@ -92,7 +92,7 @@ static unsigned char sub_36_2_2[360] = {
 #define RPM_2400 69
 #define RPM_4800 30
 
-static unsigned char stack1[STACK_SIZE];
+static OS_STK stack1[STACK_SIZE];
 static void t1(void *p)
 {
 	int x;
@@ -128,7 +128,7 @@ int main(void)
 
 	OSInit();
 
-	OSTaskCreate(t1, "t1", (void *)&stack1[STACK_SIZE - 1], 1);
+	OSTaskCreate(t1, "t1", &stack1[STK_HEAD(STACK_SIZE)], 1);
 
 	/* IRQ are enabled when the first thread is started */
 	OSStart();
